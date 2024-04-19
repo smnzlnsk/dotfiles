@@ -8,6 +8,9 @@ then
 	exit 1
 fi
 
+# init submodules after first checkout
+git submodule update --init --recursive
+
 # install packages based on architecture
 case "$(uname -s)" in
 	Linux*)
@@ -27,9 +30,12 @@ esac
 # set up configuration files
 stow config
 
+
+# change shell
+chsh -s $(which zsh)
+
 # install fonts
 ./scripts/install_fonts.sh
 
 # install themes
-# (deprecated, since all themes are currently stowed)
-#./scripts/install_themes.sh
+./scripts/install_themes.sh
