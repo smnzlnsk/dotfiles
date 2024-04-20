@@ -4,3 +4,18 @@
 [submodule "config/.tmux/plugins/tpm"]
 	path = config/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "config/.config/tmux/plugins/tmux"]
+	path = config/.config/tmux/plugins/tmux
+	url = https://github.com/catppuccin/tmux
+[submodule "config/.config/tmux/plugins/tmuxifier"]
+	path = config/.config/tmux/plugins/tmuxifier
+	url = https://github.com/jimeh/tmuxifier
+[submodule "config/.config/tmux/plugins/tmux-sensible"]
+	path = config/.config/tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "config/.config/tmux/plugins/tpm"]
+	path = config/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "config/.config/tmux/plugins/vim-tmux-navigator"]
+	path = config/.config/tmux/plugins/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
