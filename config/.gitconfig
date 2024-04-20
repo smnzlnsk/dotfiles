@@ -1,0 +1,22 @@
+[user]
+	name = smnzlnsk
+	email = simon.zelenski@gmail.com
+
+[core]
+	editor = vim
+	pager = delta
+[init]
+	defaultBranch = main
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default

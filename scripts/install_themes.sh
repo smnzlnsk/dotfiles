@@ -29,33 +29,22 @@ fi
 if command -v xfce4-terminal > /dev/null 2>&1
 then
 	echo "xfce4-terminal is installed. Setting up themes..."
-	mkdir -p ~/.local/share/xfce4/terminal/colorschemes
-	git clone https://github.com/catppuccin/xfce4-terminal
-	cp xfce4-terminal/src/* ~/.local/share/xfce4/terminal/colorschemes
-	rm -rf xfce4-terminal
+	if [ -d "~/.local/share/xfce4/terminal/colorschemes" ] 
+	then
+		mkdir -p ~/.local/share/xfce4/terminal/colorschemes
+		git clone https://github.com/catppuccin/xfce4-terminal
+		cp xfce4-terminal/src/* ~/.local/share/xfce4/terminal/colorschemes
+		rm -rf xfce4-terminal
+	else 
+		echo "xfce4-terminal themes are already installed."
+	fi
 else
 	echo "xfce4-terminal is not installed."
 fi
 
-# bat
-if command -v batcat > /dev/null 2>&1
+if [ -d "~/.oh-my-zsh/custom/themes/powerlevel10k" ]
 then
-	echo "batcat is present. Setting up themes..."
-	mkdir -p "$(batcat --config-dir)/themes"
-	wget -q -P "$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
-	wget -q -P "$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
-	wget -q -P "$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
-	wget -q -P "$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-	batcat cache --build
-elif command -v bat > /dev/null 2>&1
-then
-	echo "bat is present. Setting up themes..."
-	mkdir -p "$(bat --config-dir)/themes"
-	wget -q -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
-	wget -q -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
-	wget -q -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
-	wget -q -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-	bat cache --build
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 else 
-	echo "bat / batcat is not installed."
+	echo "powerlevel10k is already installed."
 fi
